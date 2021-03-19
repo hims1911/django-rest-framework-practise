@@ -37,7 +37,7 @@ class UserCreate(APIView):
         Creates the User
     """
     permission_classes = (AllowAny,)
-    def post(self, request, format='json'):
+    def post(self, request, *args, **kwargs):
         serializer = UserSerializer(data=request.data)
         print(request.data)
         if serializer.is_valid():

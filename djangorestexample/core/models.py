@@ -14,7 +14,7 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     name = models.CharField(max_length=30, unique=True)
-    mobile = models.IntegerField(unique=True, max_length=10)
+    mobile = models.CharField(unique=True, max_length=10)
     pincode = models.CharField(max_length=6,validators=[RegexValidator('^\d+$', message="Password should be a combination of Alphabets and Numbers"), MinLengthValidator(6, message="minimum length should be 6 and max too")])
     city = models.CharField(max_length=200, null=True)
 
