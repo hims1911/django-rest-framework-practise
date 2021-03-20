@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ## Migrate
 
 ```
-python migrate
+python manage.py migrate
 ```
 
 ## Seed admin data that will print the admin username and password
