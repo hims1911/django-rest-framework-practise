@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core',
     'rest_framework.authtoken',
     'author',
+    'django_seed'
 ]
 
 REST_FRAMEWORK = {

@@ -17,7 +17,6 @@ class User(AbstractUser):
     mobile = models.CharField(unique=True, max_length=10)
     pincode = models.CharField(max_length=6,validators=[RegexValidator('^\d+$', message="Password should be a combination of Alphabets and Numbers"), MinLengthValidator(6, message="minimum length should be 6 and max too")])
     city = models.CharField(max_length=200, null=True)
-
     objects = CustomUserManager()
 
     def __str__(self):

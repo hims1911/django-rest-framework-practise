@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "17349f9c-aaff-4de2-9513-a46b52ec5406",
+		"name": "django_rest_framework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create_user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4e75e0f213b4a1dc203bd349c881a83238afb175",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"testuser@gmail.com\",\n    \"password\": \"Password@123\",\n    \"pincode\": \"444605\",\n    \"name\": \"test user\",\n    \"mobile\": \"1234567891\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4e75e0f213b4a1dc203bd349c881a83238afb175",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"testuser@gmail.com\",\n    \"password\": \"Password@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create blog",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4e75e0f213b4a1dc203bd349c881a83238afb175",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "title_text",
+							"type": "text"
+						},
+						{
+							"key": "artist",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "summary",
+							"value": "summary_text",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "body_text",
+							"type": "text"
+						},
+						{
+							"key": "document",
+							"type": "file",
+							"src": "/home/paranoid/PDF32000_2008.pdf"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/blogs/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"blogs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update blog by blog id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4e75e0f213b4a1dc203bd349c881a83238afb175",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "artist",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "new_title",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "new_body",
+							"type": "text"
+						},
+						{
+							"key": "summary",
+							"value": "new_summary",
+							"type": "text"
+						},
+						{
+							"key": "document",
+							"type": "file",
+							"src": "/home/paranoid/PDF32000_2008.pdf"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/blogs/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"blogs",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List data for author with filter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token 4e75e0f213b4a1dc203bd349c881a83238afb175"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/blogs/?user_id=2&title=title_text&summary=summary_text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"blogs",
+						""
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						},
+						{
+							"key": "title",
+							"value": "title_text"
+						},
+						{
+							"key": "summary",
+							"value": "summary_text"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List data for author without filter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token 4e75e0f213b4a1dc203bd349c881a83238afb175"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/blogs/?user_id=10&title=title_text&summary=summary_text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"blogs",
+						""
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "10"
+						},
+						{
+							"key": "title",
+							"value": "title_text"
+						},
+						{
+							"key": "summary",
+							"value": "summary_text"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete data for author",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token 4e75e0f213b4a1dc203bd349c881a83238afb175"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/blogs/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"blogs",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
