@@ -19,11 +19,6 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-## Seed admin data that will print the admin username and password
-```
- python manage.py shell < modelSeed.py
-```
-
 ## Run Server
 ```
 python manage.py runserver
